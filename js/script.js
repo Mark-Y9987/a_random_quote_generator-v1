@@ -23,31 +23,31 @@ const quotes = [
     source: 'Malcolm Reynolds',
     citation: 'Serenity',
     year: '2005',
-  }
+  },
   {
     quote: 'We Created You. Us. It Was A Stupid, Frakked-Up Decision, And We Have Paid For It.',
     source: 'Kara Thrace',
     citation: 'Battlestar Galactica(2004)',
     year: '2005',
-  }
+  },
   {
     quote: 'Look at this. It’s worthless — ten dollars from a vendor in the street. But I take it, I bury it in the sand for a thousand years, it becomes priceless. Like the Ark.',
-    source: 'Harrison Ford',
-    citation: 'Indiana Jones',
+    source: 'Indiana Jones',
+    citation: 'Raiders of the Lost Ark',
     year: '1981',
-  }
+  },
   {
     quote: 'Wait A Minute, Doc. Are You Telling Me You Built A Time Machine...Out Of A DeLorean?',
     source: 'Marty McFly',
     citation: 'Back to the Future Part 1',
     year: '1985',
-  }
+  },
   {
     quote: '“Keep your friends close, but your enemies closer.',
     source: 'Al Pacino',
     citation: 'The Godfather part 2',
     year: '1974',
-  }
+  },
   {
     quote: "There's no crying in baseball!",
     source: 'Tom Hanks',
@@ -56,15 +56,32 @@ const quotes = [
   }
 ]
 
+
+
 /***
  * `getRandomQuote` function
 ***/
 
+function getRandomQuote() {
+  let randomNumber = Math.floor(Math.random() * quotes.length);
+  let randomQuote = quotes[randomNumber];
+  return randomQuote;
+}
 
 
 /***
  * `printQuote` function
 ***/
+
+function printQuote() {
+  let quote = getRandomQuote();
+  let html = `<p class = "quote">${quote.quote}</p>`;
+  html += `<p class = "source">${quote.source}</p>`;
+  if (quotes.citation) { //this isn't working....need to be able to check the object literal for the key value of 'citation'
+    html += `<span class = "citation">${quote.citation}</span>`;
+  }
+  return html;
+}
 
 
 
